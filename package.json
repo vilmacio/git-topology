@@ -1,0 +1,8 @@
+{
+  "name": "git-visualization",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vilmacio/git-visualization.git",
+  "author": "vilmacio <vilmacio@users.noreply.github.com>",
+  "license": "MIT"
+}
