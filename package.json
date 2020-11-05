@@ -16,6 +16,9 @@
     "jest": "^26.6.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
+  },
+  "dependencies": {
+    "deasync": "^0.1.20"
   }
 }

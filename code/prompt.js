@@ -1,8 +1,8 @@
-const { exec } = require('child_process')
+const childProcess = require('child_process')
 
 module.exports = {
   execute: (command, callback) => {
-    exec(command, (error, stdout, stderr) => {
+    childProcess.exec(command, (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`)
         return
