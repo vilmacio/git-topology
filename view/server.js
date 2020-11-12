@@ -4,7 +4,7 @@ const path = require('path')
 
 http.createServer((req, res) => {
   const file = req.url === '/' ? 'index.html' : req.url
-  const allowedFiles = ['.html', '.css', '.js']
+  const allowedFiles = ['.html', '.css', '.js', '.json']
   const allowed = allowedFiles.find(item => item === path.extname(file))
   if (!allowed) return
   const content = fs.readFileSync(path.join(__dirname, file))

@@ -49,7 +49,7 @@ class Tree {
     if (result.includes('?? ')) {
       return 'Untracked'
     }
-    return ''
+    return '--'
   }
 
   async filesList () {
