@@ -1,6 +1,7 @@
 const fs = require('fs').promises
 const path = require('path')
 const prompt = require('./prompt')
+const db = require('./db')
 
 class Tree {
   constructor () {
@@ -65,8 +66,8 @@ class Tree {
     return Array.prototype.concat(...files)
   }
 
-  async save (data) {
-    await fs.writeFile(path.join(__dirname, 'data.json'), JSON.stringify(data))
+  save (data) {
+    db().set('tree', data).write()
   }
 }
 
