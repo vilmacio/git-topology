@@ -2,13 +2,15 @@ const lowdb = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const fs = require('fs')
 const path = require('path')
+const dfSource = path.join(__dirname, 'data.json')
 
-module.exports = (dbSource) => {
+module.exports = (dbSource = dfSource) => {
   const parentDir = path.dirname(dbSource)
   if (!fs.existsSync(parentDir)) {
-    console.log(fs.existsSync(dbSource))
     fs.mkdirSync(path.join(parentDir))
   }
   const adapter = new FileSync(dbSource)
-  return lowdb(adapter)
+  const low = lowdb(adapter)
+  low.defaults({ tree: [], branch: [] }).write()
+  return low
 }
