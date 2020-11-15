@@ -79,6 +79,14 @@ canvas {
     box-shadow: 0 0 2px;
 }
 
+.label p {
+    font-size: 11px;
+}
+
+#file-name {
+    font-size: 13px;
+}
+
 .events {
     width: 70%;
     overflow-y: scroll;
