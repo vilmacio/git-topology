@@ -11,6 +11,6 @@ module.exports = (dbSource = dfSource) => {
   }
   const adapter = new FileSync(dbSource)
   const low = lowdb(adapter)
-  low.defaults({ tree: [], branch: [] }).write()
+  low.defaults({ project_name: '', tree: [], branch: [] }).write()
   return low
 }

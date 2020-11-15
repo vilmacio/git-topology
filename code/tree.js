@@ -30,6 +30,12 @@ class Tree {
     }
   }
 
+  saveProjectName () {
+    const projectPath = path.join(__dirname, '..').split('\\')
+    const projectName = projectPath[projectPath.length - 1]
+    db().set('project_name', projectName).write()
+  }
+
   async getReturnFromPrompt (filePath) {
     return new Promise(resolve => {
       prompt.execute('git status ' + filePath + ' -s', (result) => {
