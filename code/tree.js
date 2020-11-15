@@ -40,7 +40,6 @@ class Tree {
 
   async statusVerificator (filePath) {
     const result = await this.getReturnFromPrompt(JSON.stringify(filePath))
-    console.log(result)
     if (result.includes('A ')) {
       return 'Added'
     }
