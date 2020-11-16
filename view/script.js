@@ -1,4 +1,4 @@
-async function getTree () {
+async function getData () {
   return new Promise(resolve => {
     // eslint-disable-next-line no-undef
     fetch('../code/db/data.json')
@@ -11,8 +11,17 @@ async function getTree () {
 
 const sectionTree = document.getElementById('tree')
 
-async function createFile () {
-  const data = await getTree()
+async function setProjectName () {
+  const data = await getData()
+  const projectNameElement = document.getElementById('project-name')
+  projectNameElement.innerText = `> ${data.project_name}`
+
+  const projectVersionElement = document.getElementById('project-version')
+  projectVersionElement.innerText = `v${data.project_version}`
+}
+
+async function createFileDiv () {
+  const data = await getData()
 
   for (const file of data.tree) {
     const fileDiv = document.createElement('div')
@@ -29,4 +38,5 @@ async function createFile () {
   }
 }
 
-createFile()
+setProjectName()
+createFileDiv()

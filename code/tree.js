@@ -31,9 +31,12 @@ class Tree {
   }
 
   saveProjectName () {
-    const projectPath = path.join(__dirname, '..').split('\\')
-    const projectName = projectPath[projectPath.length - 1]
-    db().set('project_name', projectName).write()
+    const packagePath = path.resolve('package.json')
+    const id = path.relative(__dirname, packagePath)
+
+    const project = require(id)
+    db().set('project_name', project.name).write()
+    db().set('project_version', project.version).write()
   }
 
   async getReturnFromPrompt (filePath) {
